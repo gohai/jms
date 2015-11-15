@@ -1,0 +1,9 @@
+{
+	"title": "Test Work 2",
+	"type": "Dance Performance",
+	"year": "2000-ongoing",
+	"sortYear": "ongoing",
+	"materials": ["shoes", "music"],
+	"reference": ["testwork1"],
+	"url_work": ["http://youtube.com/"]
+}

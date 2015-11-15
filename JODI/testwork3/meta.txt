@@ -1,0 +1,9 @@
+{
+	"title": "Test Work 3",
+	"type": "Software",
+	"year": "2012-2013",
+	"sortYear": 2013,
+	"materials": ["mouse", "keyboard"],
+	"reference": ["testwork1"],
+	"url_work": ["http://apple.com/", "http://www.mediamarkt.nl"]
+}

@@ -1,0 +1,9 @@
+{
+	"title": "Test Work 1",
+	"type": "Software",
+	"year": "2000/2002",
+	"sortYear": 2002,
+	"materials": ["wood", "clay"],
+	"reference": ["testwork2", "testwork3"],
+	"url_work": ["http://ns.nl/"]
+}

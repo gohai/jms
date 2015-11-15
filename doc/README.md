@@ -60,8 +60,12 @@ not exist for the work to show up.
 
 # Third-party software used
 
-Uses Bootstrap 3.3.5, downloaded from http://getbootstrap.com/getting-started/
-Uses FFmpeg 2.8.2, static build downloaded from http://johnvansickle.com/ffmpeg/
-Uses Isotope 2.2.2, downloaded from http://isotope.metafizzy.co/
-Uses jQuery 2.1.4, downloaded from https://jquery.com/
-Uses Open Sans Light, downloaded from https://google-webfonts-helper.herokuapp.com/
+Bootstrap 3.3.5, downloaded from http://getbootstrap.com/getting-started/
+
+FFmpeg 2.8.2, static build downloaded from http://johnvansickle.com/ffmpeg/
+
+Isotope 2.2.2, downloaded from http://isotope.metafizzy.co/
+
+jQuery 2.1.4, downloaded from https://jquery.com/
+
+Open Sans Light, downloaded from https://google-webfonts-helper.herokuapp.com/

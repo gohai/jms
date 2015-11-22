@@ -21,11 +21,23 @@
 
 foreach ($data['media'] as $category):
 
+  $has_previews = false;
+  foreach ($category['media'] as $media) {
+    if (!in_array(explode('/', $media['mime'])[0], array('audio', 'image', 'video'))) {
+      continue;
+    }
+    $has_previews = true;
+  }
+
+  if ($has_previews):
+
 ?>
           <li role="presentation">
             <a role="menuitem" id="work-category-filter-<?php echo format_class($category['name']); ?>" class="nav-<?php echo format_class($category['name']); ?>"><?php echo $category['title']; ?></a>
           </li>
 <?php
+
+  endif;
 
 endforeach;
 

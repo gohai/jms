@@ -215,23 +215,6 @@ foreach ($data['media'] as $category) {
   <script type="text/javascript">
   $( document ).ready(function() {
 
-    var timeout;
-    // undo the hack on resize and recalculate afterwards
-    $(window).on('resize', function() {
-    clearTimeout(timeout);
-
-    timeout = setTimeout(function() {
-      $('.dist').each(function() {
-        if ($(this).attr('data-saved-max-width')) {
-          $(this).css('max-width', $(this).attr('data-saved-max-width'));
-          $(this).attr('data-saved-max-width', '');
-          $(this).css('width', '');
-        }
-      });
-
-    }, 100);
-    });
-
     // pause video when modal is closed
     $('.modal').on('hidden.bs.modal', function () {
       $('video').trigger('pause');

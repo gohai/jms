@@ -170,8 +170,8 @@ foreach ($data['media'] as $category) {
 
 ?>
       <a data-toggle="modal" class="modalURL" data-target="#media-<?php echo substr(sha1($media['fn']), 0, 6); ?>"><div class="work-preview work-category-<?php echo format_class($category['name']); ?> artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
-        <div style="padding-top: 133.333333333%;"></div>
-        <img data-src="<?php echo $media['url']; ?>" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 525px;" src="">
+        <div style="padding-top: <?php echo ($media['height']/$media['width'])*100.0; ?>%;"></div>
+        <img data-src="<?php echo $media['url']; ?>" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: <?php echo $media['width']; ?>px;" src="">
       </div></a>
 <?php
 

@@ -43,6 +43,28 @@ function generate_work($name) {
 	return run_template('template-work.php', $data);
 }
 
+function get_image_size($fn) {
+	// try gd
+	if (function_exists('getimagesize')) {
+		$ret = @getimagesize($fn);
+		if ($ret !== false) {
+			return array('width' => $ret[0], 'height' => $ret[1], 'mime' => $ret['mime']);
+		}
+	}
+
+	// try imagemagick
+	if (extension_loaded('imagick')) {
+		try {
+			$im = new Imagick($fn);
+			return $im->getImageGeometry();
+		} catch (Exception $e) {
+		}
+	}
+
+	// XXX: use bin?
+	return false;
+}
+
 function get_mime($fn) {
 	if (function_exists('finfo_file')) {
 		$finfo = @finfo_open(FILEINFO_MIME_TYPE);
@@ -245,7 +267,12 @@ function load_media_category($work_name, $category_name) {
 		if (!@is_file(content_dir() . '/' . $full_fn)) {
 			continue;
 		}
-		$category['media'][] = array('url' => 'JODI/' . $full_fn, 'fn' => $fn, 'description' => '', 'mime' => get_mime(content_dir() . '/' . $full_fn));
+		$media = array('url' => 'JODI/' . $full_fn, 'fn' => $fn, 'description' => '', 'mime' => get_mime(content_dir() . '/' . $full_fn));
+		// load image dimensions
+		if (explode('/', $media['mime'])[0] === 'image') {
+			$media = array_merge($media, get_image_size(content_dir() . '/' . $full_fn));
+		}
+		$category['media'][] = $media;
 	}
 
 	// sort media items
@@ -322,13 +349,19 @@ function load_work($name, $resolve_references = true) {
 			// not a file
 			continue;
 		}
+		$full_fn = $name . '/' . $fn;
 		// check mime type
-		$mime = get_mime(content_dir() . '/' . $name . '/' . $fn);
+		$mime = get_mime(content_dir() . '/' . $full_fn);
 		if (!in_array(explode('/', $mime)[0], array('image', 'video'))) {
 			// only accept images and videos
 			continue;
 		}
-		$work['primary_representation'] = array('url' => 'JODI/' . $name . '/' . $fn, 'description' => '', $fn => $fn, 'mime' => $mime);
+		$media = array('url' => 'JODI/' . $full_fn, 'fn' => $fn, 'description' => '', 'mime' => get_mime(content_dir() . '/' . $full_fn));
+		// load image dimensions
+		if (explode('/', $media['mime'])[0] === 'image') {
+			$media = array_merge($media, get_image_size(content_dir() . '/' . $full_fn));
+		}
+		$work['primary_representation'] = $media;
 	}
 
 	return $work;

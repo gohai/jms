@@ -123,7 +123,7 @@ foreach ($data['media'] as $category) {
       echo ', ';
     }
 
-    echo '<a data-toggle="modal" class="modalURL media-type-' . format_class(explode('/', $media['mime'])[0]) . ' media-type-' .  format_class($media['mime']) . ' media-category-' . format_class($category['name']) . '" data-target="#media-491">' . $media['fn'] . '</a>';
+    echo '<a data-toggle="modal" class="modalURL media-type-' . format_class(explode('/', $media['mime'])[0]) . ' media-type-' .  format_class($media['mime']) . ' media-category-' . format_class($category['name']) . '" data-target="#media-' . substr(sha1($media['fn']), 0, 6) . '">' . $media['fn'] . '</a>';
   }
 
   if ($found) {
@@ -169,7 +169,7 @@ foreach ($data['media'] as $category) {
     }
 
 ?>
-      <a data-toggle="modal" class="modalURL" data-target="#media-476"><div class="work-preview work-category-<?php echo format_class($category['name']); ?> artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
+      <a data-toggle="modal" class="modalURL" data-target="#media-<?php echo substr(sha1($media['fn']), 0, 6); ?>"><div class="work-preview work-category-<?php echo format_class($category['name']); ?> artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
         <div style="padding-top: 133.333333333%;"></div>
         <img data-src="<?php echo $media['url']; ?>" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 525px;" src="">
       </div></a>
@@ -185,7 +185,7 @@ foreach ($data['media'] as $category) {
   foreach ($category['media'] as $media) {
 
 ?>
-      <div class="work-modal work-category-<?php echo format_class($category['name']); ?> modal permalink modal-type-exhibition" id="media-476" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="work-modal work-category-<?php echo format_class($category['name']); ?> modal permalink modal-type-exhibition" id="media-<?php echo substr(sha1($media['fn']), 0, 6); ?>" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">

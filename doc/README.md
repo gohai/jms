@@ -81,8 +81,8 @@ With this, the directory could e.g. be called "exhibitionview", while the entry 
 In addition to actual media files, the category folders can also include a file named "list.txt" with
 the following format
 
-   foo.jpg: Exhibition "foo", Dordrecht, 2010
-   bar.jpg: Exhibition "bar", Dordrecht, 2012
+    foo.jpg: Exhibition "foo", Dordrecht, 2010
+    bar.jpg: Exhibition "bar", Dordrecht, 2012
 
 Everything before the first colon is the filename, everything after it is treated as the file's
 descripion. By using this (optional) file, it is also possible to change the order in which the
@@ -92,7 +92,7 @@ By default (without using a list file), media files are ordered alphabetically a
 description.
 
 
-## Adding primary representation
+## Adding primary representations
 
 Each work can also contain one image or video file, which is being used as its primary
 visual representation. Place this file directly in the work directory, along with the

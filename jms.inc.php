@@ -42,6 +42,68 @@ function generate_work($name) {
 	return run_template('template-work.php', $data);
 }
 
+function get_mime($fn) {
+	if (function_exists('finfo_file')) {
+		$finfo = @finfo_open(FILEINFO_MIME_TYPE);
+		$mime = @finfo_file($finfo, $fn);
+		@finfo_close($finfo);
+	}
+
+	$mime = false;
+	if (!@is_string($mime)) {
+		// heuristic
+		switch (strtolower(filext($fn))) {
+			case 'aif':
+			case 'aiff':
+				$mime = 'audio/aiff'; break;
+			case 'avi':
+				$mime = 'video/x-msvideo'; break;
+			case 'bmp':
+				$mime = 'image/bmp'; break;
+			case 'gif':
+				$mime = 'image/gif'; break;
+			case 'jpg':
+			case 'jpeg':
+				$mime = 'image/jpeg'; break;
+			case 'mov':
+				$mime = 'video/quicktime'; break;
+			case 'mp3':
+				$mime = 'audio/mpeg3'; break;
+			case 'mp4':
+				$mime = 'video/mp4'; break;
+			case 'mpg':
+			case 'mpeg':
+				$mime = 'video/mpeg'; break;
+			case 'oga':
+			case 'ogg':
+				$mime = 'audio/ogg'; break;
+			case 'ogv':
+				$mime = 'video/ogg'; break;
+			case 'pdf':
+				$mime = 'application/pdf'; break;
+			case 'png':
+				$mime = 'image/png'; break;
+			case 'tga':
+				$mime = 'image/tga'; break;
+			case 'tif':
+			case 'tiff':
+				$mime = 'image/tiff'; break;
+			case 'txt':
+				$mime = 'text/plain'; break;
+			case 'wav':
+				$mime = 'audio/wav'; break;
+			case 'webm':
+				$mime = 'video/webm'; break;
+			case 'zip':
+				$mime = 'application/zip'; break;
+			default:
+				$mime = '';
+		}
+	}
+
+	return $mime;
+}
+
 function get_name_from_url($url) {
 	$names = list_works();
 	foreach ($names as $name) {
@@ -174,10 +236,11 @@ function load_media_category($work_name, $category_name) {
 		if (substr($fn, 0, 1) == '_') {
 			continue;
 		}
-		if (!@is_file(content_dir() . '/' . $work_name . '/' . $category_name . '/' . $fn)) {
+		$full_fn = $work_name . '/' . $category_name . '/' . $fn;
+		if (!@is_file(content_dir() . '/' . $full_fn)) {
 			continue;
 		}
-		$category['media'][] = array('url' => $work_name . '/' . $category_name . '/' . $fn, 'fn' => $fn, 'description' => '');
+		$category['media'][] = array('url' => $full_fn, 'fn' => $fn, 'description' => '', 'mime' => get_mime(content_dir() . '/' . $full_fn));
 	}
 
 	// sort media items

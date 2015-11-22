@@ -216,7 +216,11 @@ function load_media_category($work_name, $category_name) {
 
 	// check if we have custom ordering and descriptions
 	$descriptions = @file_get_contents(content_dir() . '/' . $work_name . '/' . $category_name . '/list.txt');
-	$descriptions = explode("\n", $descriptions);
+	if ($descriptions !== false) {
+		$descriptions = explode("\n", $descriptions);
+	} else {
+		$descriptions = array();
+	}
 	for ($i = 0; $i < count($descriptions); $i++) {
 		$tmp = explode(':', $descriptions[$i]);
 		if (!empty($tmp[0])) {

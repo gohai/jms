@@ -195,7 +195,7 @@ foreach ($data['media'] as $category) {
               <a data-dismiss="modal">
 <?php
 
-    if ($media['mime'] == 'application/pdf') { 
+    if ($media['mime'] == 'application/pdf') {
 
       echo '<object data="' . $media['url'] . '" type="application/pdf" width="780" height="585">';
       echo '<p><a href="' . $media['url'] . '">Download</a></p>';
@@ -216,7 +216,7 @@ foreach ($data['media'] as $category) {
 
     }
 
-?>              
+?>
             </div>
           </div>
         </div>

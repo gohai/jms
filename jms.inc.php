@@ -143,9 +143,23 @@ function load_media_category($work_name, $category_name) {
 		$category['title'] = $category_name;
 	}
 
+	// check if we have custom ordering and descriptions
+	$descriptions = @file_get_contents(content_dir() . '/' . $work_name . '/' . $category_name . '/list.txt');
+	$descriptions = explode("\n", $descriptions);
+	for ($i = 0; $i < count($descriptions); $i++) {
+		$tmp = explode(':', $descriptions[$i]);
+		if (!empty($tmp[0])) {
+			$descriptions[$i] = array('fn' => $tmp[0], 'description' => ltrim(implode(':', array_slice($tmp, 1))));
+		} else {
+			// handle empty lines
+			array_splice($descriptions, $i, 1);
+			$i--;
+		}
+	}
+
 	$category['media'] = array();
 	foreach ($fns as $fn) {
-		if (in_array($fn, array('.', '..'))) {
+		if (in_array($fn, array('.', '..', 'list.txt'))) {
 			continue;
 		}
 		if (substr($fn, 0, 1) == '_') {
@@ -154,7 +168,22 @@ function load_media_category($work_name, $category_name) {
 		if (!@is_file(content_dir() . '/' . $work_name . '/' . $category_name . '/' . $fn)) {
 			continue;
 		}
-		$category['media'][] = array('url' => $work_name . '/' . $category_name . '/' . $fn);
+		$category['media'][] = array('url' => $work_name . '/' . $category_name . '/' . $fn, 'fn' => $fn, 'description' => '');
+	}
+
+	// sort media items
+	for ($i=count($descriptions)-1; 0 <= $i; $i--) {
+		// loop through all defined descriptions in reverse
+		for ($j=0; $j < count($category['media']); $j++) {
+			if ($category['media'][$j]['fn'] === $descriptions[$i]['fn']) {
+				// if we find the filename, push it to the top
+				$tmp = array_splice($category['media'], $j, 1)[0];
+				// and add the description
+				$tmp['description'] = $descriptions[$i]['description'];
+				array_unshift($category['media'], $tmp);
+				break;
+			}
+		}
 	}
 
 	return $category;

@@ -76,6 +76,22 @@ With this, the directory could e.g. be called "exhibitionview", while the entry 
 "Exhibition view".
 
 
+## Adding media descriptions
+
+In addition to actual media files, the category folders can also include a file named "list.txt" with
+the following format
+
+   foo.jpg: Exhibition "foo", Dordrecht, 2010
+   bar.jpg: Exhibition "bar", Dordrecht, 2012
+
+Everything before the first colon is the filename, everything after it is treated as the file's
+descripion. By using this (optional) file, it is also possible to change the order in which the
+media files are presented on the website. Here, "foo.jpg" is shown before "bar.jpg".
+
+By default (without using a list file), media files are ordered alphabetically and have an empty
+description.
+
+
 # Third-party software used
 
 Bootstrap 3.3.5, downloaded from http://getbootstrap.com/getting-started/

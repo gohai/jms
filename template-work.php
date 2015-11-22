@@ -208,31 +208,6 @@ foreach ($data['media'] as $category) {
     </div>
   </div>
 
-  <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-      <div class="modal-content">
-        <div class="modal-header">
-          <button type="button" class="close modalclose" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-          <h2 class="modal-title" id="myModalLabel">Downloads for Audioswap5 (2009)</h2>
-        </div>
-        <div class="modal-body">
-          <table class="table">
-            <thead>
-              <tr>
-                <th>filename</th>
-                <th>size</th>
-                <th>content-type</th>
-                <th>platform</th>
-                <th>Reccommended system specifications</th>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
-        </div>
-        <div class="modal-footer"></div>
-      </div>
-    </div>
-  </div>
   <script src="js/jquery.min.js">
   </script>
   <script src="js/bootstrap.min.js">

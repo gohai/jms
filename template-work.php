@@ -16,14 +16,14 @@
       </div>
       <div class="dropdown viewmenu">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">View <span class="glyphicon dropchev glyphicon-chevron-down" aria-hidden="true"></span></button>
-        <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" role="menu">
+        <ul id="work-category-filter" class="dropdown-menu" aria-labelledby="dropdownMenu1" role="menu">
 <?php
 
 foreach ($data['media'] as $category):
 
 ?>
           <li role="presentation">
-            <a role="menuitem" class="nav-<?php echo format_class($category['name']); ?>"><?php echo $category['title']; ?></a>
+            <a role="menuitem" id="work-category-filter-<?php echo format_class($category['name']); ?>" class="nav-<?php echo format_class($category['name']); ?>"><?php echo $category['title']; ?></a>
           </li>
 <?php
 
@@ -31,7 +31,7 @@ endforeach;
 
 ?>
           <li>
-            <a class="nav-all">All</a>
+            <a id="work-category-filter-all" class="nav-all">All</a>
           </li>
         </ul>
       </div>
@@ -157,7 +157,7 @@ foreach ($data['media'] as $category) {
     }
 
 ?>
-      <a data-toggle="modal" class="modalURL" data-target="#media-476"><div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
+      <a data-toggle="modal" class="modalURL" data-target="#media-476"><div class="work-preview work-category-<?php echo format_class($category['name']); ?> artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
         <div style="padding-top: 133.333333333%;"></div>
         <img data-src="<?php echo $media['url']; ?>" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 525px;" src="">
       </div></a>
@@ -173,7 +173,7 @@ foreach ($data['media'] as $category) {
   foreach ($category['media'] as $media) {
 
 ?>
-      <div class="modal permalink modal-type-exhibition" id="media-476" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="work-modal work-category-<?php echo format_class($category['name']); ?> modal permalink modal-type-exhibition" id="media-476" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
             <div class="modal-header">
@@ -242,7 +242,6 @@ foreach ($data['media'] as $category) {
         }
       });
 
-      moveCloserToDesc();
     }, 100);
     });
 
@@ -310,44 +309,37 @@ foreach ($data['media'] as $category) {
     $('.modal img').css('max-height', 'calc('+$(window).height()+'px - 70px)');
   });
 
-  /* do a relayout when the filter changes */
-  $('.dropdown-menu').on('click', function(e) {
-    var cls = e.target.className;
-    var sel = 'all';
-    if (cls.indexOf('-') != -1) {
-      sel = cls.substring(cls.indexOf('-')+1);
-    }
-    if (sel != 'all') {
-      $('.artworkIMG').hide();
-      $('.rep-type-' + sel).show();
-      $('.rep-type-' + sel).find('img').each(function(e) {
-        if ($(this).attr('data-src')) {
-          $(this).attr('src', $(this).attr('data-src'));
-          $(this).removeAttr('data-src');
-        }
-      });
-      $('.modal-type-' + sel).find('img').each(function(e) {
-        if ($(this).attr('data-src')) {
-          $(this).attr('src', $(this).attr('data-src'));
-          $(this).removeAttr('data-src');
-        }
-      });
+  /* category filter */
+
+  $('#work-category-filter').on('click', function(e) {
+    var targetCategory = e.target.id.substring(21, e.target.id.length);
+
+    // show previews, hide others
+    if (targetCategory == 'all') {
+      $('.work-preview').show();
     } else {
-      $('.artworkIMG').show();
-      $('.artworkIMG').find('img').each(function(e) {
-        if ($(this).attr('data-src')) {
-          $(this).attr('src', $(this).attr('data-src'));
-          $(this).removeAttr('data-src');
-        }
-      });
-      $('.modal' + sel).find('img').each(function(e) {
-        if ($(this).attr('data-src')) {
-          $(this).attr('src', $(this).attr('data-src'));
-          $(this).removeAttr('data-src');
-        }
-      });
+      $('.work-preview').not('.work-category-' + targetCategory).hide();
+      $('.work-preview').filter('.work-category-' + targetCategory).show();
     }
-    console.log($('.artworkIMG').first().offset());
+
+    // load images for selected catergory, preview and modal
+    var toLoad;
+    if (targetCategory == 'all') {
+      toLoad = $('.work-preview, .work-modal');
+    } else {
+      toLoad = $('.work-category-' + targetCategory);
+    }
+    $(toLoad).each(function() {
+      // find any child img that have a data-src attribute
+      $(this).find('img').each(function() {
+        if ( $(this).attr('data-src') ) {
+          $(this).attr('src', $(this).attr('data-src'));
+          $(this).removeAttr('data-src');
+        }
+      });
+    });
+
+    // scroll to beginning of previews
     window.scrollTo(0, $('#tilecontainer').offset().top-50);
   });
 

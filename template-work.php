@@ -322,6 +322,7 @@ foreach ($data['media'] as $category) {
     $('.modal img').css('max-height', 'calc('+$(window).height()+'px - 70px)');
   });
 
+
   /* category filter */
 
   $('#work-category-filter').on('click', function(e) {
@@ -335,7 +336,7 @@ foreach ($data['media'] as $category) {
       $('.work-preview').filter('.work-category-' + targetCategory).show();
     }
 
-    // load images for selected catergory, preview and modal
+    // load images for selected category (preview and modal)
     var toLoad;
     if (targetCategory == 'all') {
       toLoad = $('.work-preview, .work-modal');
@@ -343,7 +344,7 @@ foreach ($data['media'] as $category) {
       toLoad = $('.work-category-' + targetCategory);
     }
     $(toLoad).each(function() {
-      // find any child img that have a data-src attribute
+      // find any child img that has a data-src attribute
       $(this).find('img').each(function() {
         if ( $(this).attr('data-src') ) {
           $(this).attr('src', $(this).attr('data-src'));

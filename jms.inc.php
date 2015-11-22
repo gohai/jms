@@ -245,7 +245,7 @@ function load_media_category($work_name, $category_name) {
 		if (!@is_file(content_dir() . '/' . $full_fn)) {
 			continue;
 		}
-		$category['media'][] = array('url' => $full_fn, 'fn' => $fn, 'description' => '', 'mime' => get_mime(content_dir() . '/' . $full_fn));
+		$category['media'][] = array('url' => 'JODI/' . $full_fn, 'fn' => $fn, 'description' => '', 'mime' => get_mime(content_dir() . '/' . $full_fn));
 	}
 
 	// sort media items
@@ -328,7 +328,7 @@ function load_work($name, $resolve_references = true) {
 			// only accept images and videos
 			continue;
 		}
-		$work['primary_representation'] = array('url' => $name . '/' . $fn, 'description' => '', $fn => $fn, 'mime' => $mime);
+		$work['primary_representation'] = array('url' => 'JODI/' . $name . '/' . $fn, 'description' => '', $fn => $fn, 'mime' => $mime);
 	}
 
 	return $work;

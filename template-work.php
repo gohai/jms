@@ -123,36 +123,11 @@ foreach ($data['media'] as $category) {
   ...
 });
 </pre>
-        <p><!--    <div class="dropdown">
-      <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">          
-
-            Filter media
-            <span class="caret"></span>
-        </button>
-<ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
-            <li role="presentation" class="dropdown-header">By Type</li>
-            <li><a class="nav-screenshots">Screenshots</a></li>
-            <li><a class="nav-instllation">Installation views</a></li>
-            <li><a class="nav-sketches">Sketches and Resarch</a></li>
-            <li><a class="nav-ephemera">Ephemera</a></li>
-            <li><a class="nav-press">Press</a></li>
-            <li class="divider"></li>
-            <li role="presentation" class="dropdown-header">By Format</li>
-            <li><a class="nav-screenshots">Image</a></li>
-            <li><a class="nav-instllation">Video</a></li>
-            <li><a class="nav-sketches">Sound</a></li>
-            <li><a class="nav-ephemera">Documents</a></li>
-            <li class="divider"></li>
-            <li><a class="nav-screenshots">Remove filters</a></li>
-          </ul>
-        </div>
- --></p>
-      </div><!--end of metadata row -->
-    </div><!-- end of metadata col -->
+        <p></p>
+      </div>
+    </div>
     <div class="description col-md-6 stamp">
-      <!-- container for item description, reactive bootstrap column w/ packed stamp -->
       <div class="row descrow">
-        <!-- desc row -->
         <p></p>
         <h1><?php echo $data['title']; ?></h1>
 <?php
@@ -166,10 +141,10 @@ if (!empty($data['description'])):
 endif;
 
 ?>
-      </div><!-- end of desc row -->
-    </div><!-- end of description col -->
+      </div>
+    </div>
     <div id="tilecontainer" style="clear: left; padding-top: 20px;">
-      <!-- all media content goes next, with "packitem" class --> <a data-toggle="modal" class="modalURL" data-target="#media-476">
+      <a data-toggle="modal" class="modalURL" data-target="#media-476">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
       <div style="padding-top: 133.333333333%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/43766_ca_object_representations_media_476_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 525px;"></div></a> <!-- modal for representation -->
       <div class="modal permalink modal-type-exhibition" id="media-476" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -184,7 +159,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-490">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
       <div style="padding-top: 104.633781764%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/11033_ca_object_representations_media_490_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 669px;"></div></a> <!-- modal for representation -->
@@ -200,7 +175,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-274">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 487px; display:none;">
       <div style="padding-top: 69.5714285714%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/2/68459_ca_object_representations_media_274_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -216,7 +191,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-276">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition rep-primary" style="max-height: 459px;">
       <div style="padding-top: 65.5714285714%;"></div><img src="http://jodi.academy/media/collectiveaccess/images/2/77024_ca_object_representations_media_276_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -232,7 +207,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-471">
       <div class="artworkIMG dist packitem rep-image rep-type-artwork" style="max-height: 477px; display:none;">
       <div style="padding-top: 68.1428571429%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/70141_ca_object_representations_media_471_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -248,7 +223,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-472">
       <div class="artworkIMG dist packitem rep-image rep-type-artwork" style="max-height: 525px; display:none;">
       <div style="padding-top: 75%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/11187_ca_object_representations_media_472_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -264,7 +239,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-473">
       <div class="artworkIMG dist packitem rep-image rep-type-artwork" style="max-height: 438px; display:none;">
       <div style="padding-top: 62.5714285714%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/41845_ca_object_representations_media_473_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -280,7 +255,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-474">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 525px; display:none;">
       <div style="padding-top: 75%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/10966_ca_object_representations_media_474_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -296,7 +271,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-477">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 525px; display:none;">
       <div style="padding-top: 75%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/53178_ca_object_representations_media_477_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -312,7 +287,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-480">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 465px; display:none;">
       <div style="padding-top: 66.4285714286%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/83594_ca_object_representations_media_480_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -328,7 +303,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-481">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
       <div style="padding-top: 133.333333333%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/53668_ca_object_representations_media_481_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 525px;"></div></a> <!-- modal for representation -->
@@ -344,7 +319,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-482">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 525px; display:none;">
       <div style="padding-top: 75%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/90740_ca_object_representations_media_482_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -360,7 +335,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-483">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 512px; display:none;">
       <div style="padding-top: 73.1428571429%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/63078_ca_object_representations_media_483_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -376,7 +351,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-488">
       <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 467px; display:none;">
       <div style="padding-top: 66.7142857143%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/66940_ca_object_representations_media_488_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -392,7 +367,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-491"></a> <!-- modal for representation -->
       <div class="modal permalink modal-type-ephemera" id="media-491" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -407,7 +382,7 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
+      </div>
        <a data-toggle="modal" class="modalURL" data-target="#media-492">
       <div class="artworkIMG dist packitem rep-image rep-type-ephemera" style="max-height: 466px; display:none;">
       <div style="padding-top: 66.5714285714%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/17506_ca_object_representations_media_492_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
@@ -423,10 +398,10 @@ endif;
             </div>
           </div>
         </div>
-      </div><!-- end of modal div -->
-    </div><!-- <img src="/themes/default_jodi/img/fake-images/large.jpg" width="100%"> -->
-  </div><!-- end of container -->
-  <!-- Downloads Modal -->
+      </div>
+    </div>
+  </div>
+
   <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
@@ -458,158 +433,61 @@ endif;
   </script>
   <script type="text/javascript">
   $( document ).ready(function() {
-    //console.log( "ready!" );
 
-    /*
-    var $container = $('.container-fluid').isotope({
-      layoutMode: 'none',
-      transitionDuration:0,
-    itemSelector: '.packitem',
-    stamp: '.stamp',
-    // make artwork the default filter
-    filter: '.rep-type-artwork'
-  });
-  */
-      //$container.imagesLoaded( function() {
-  //$container.isotope('layout');
+    var timeout;
+    // undo the hack on resize and recalculate afterwards
+    $(window).on('resize', function() {
+    clearTimeout(timeout);
 
-      
-      /*
-      $( ".nav-research" ).click(function() {
-          $container.isotope({ filter: '.rep-type-research' });
-          // $(this).html( "asdf" );
+    timeout = setTimeout(function() {
+      $('.dist').each(function() {
+        if ($(this).attr('data-saved-max-width')) {
+          $(this).css('max-width', $(this).attr('data-saved-max-width'));
+          $(this).attr('data-saved-max-width', '');
+          $(this).css('width', '');
+        }
       });
-      $( ".nav-process" ).click(function() {
-          $container.isotope({ filter: '.rep-type-process' });
-          // $(this).addClass( "active" );
-      });
-      $( ".nav-ephemera" ).click(function() {
-          $container.isotope({ filter: '.rep-type-ephemera' });
-          // $(this).addClass( "active" );
-      });
-      $( ".nav-artwork" ).click(function() {
-          $container.isotope({ filter: '.rep-type-artwork' });
-          // $(this).addClass( "active" );
-      });
-      $( ".nav-exhibition" ).click(function() {
-          $container.isotope({ filter: '.rep-type-exhibition' });
-          // $(this).addClass( "active" );
-      });
-      $( ".nav-performance" ).click(function() {
-          $container.isotope({ filter: '.rep-type-performance' });
-          // $(this).addClass( "active" );
-      });
-      $( ".nav-press" ).click(function() {
-          $container.isotope({ filter: '.rep-type-press' });
-          // $(this).addClass( "active" );
-      });
-      $( ".nav-all" ).click(function() {
-        $container.isotope({ filter: '*' });
-      });
-      */
-  //});
 
+      moveCloserToDesc();
+    }, 100);
+    });
 
-  // make any images next to the description fill the column with
-  function moveCloserToDesc() {
-  /*
-  $('.dist').each(function() {
-    var descBottom = $('.descrow').offset().top+$('.descrow').outerHeight();
-    // ignore if we're past the bottom
-    if (descBottom < $(this).offset().top) {
-      return;
-    }
-    // ignore if we're to the right of the description
-    if ($('.descrow').offset().left < $(this).offset().left) {
-      return;
-    }
+    // pause video when modal is closed
+    $('.modal').on('hidden.bs.modal', function () {
+      $('video').trigger('pause');
+      history.pushState({}, '', window.location.pathname);
+    });
 
-    // make it possible to scale up the image, while retaining the data
-    $(this).attr('data-saved-max-width', $(this).css('max-width'));
-    $(this).css('max-width', '');
-    // hardcore a width that brings it close to the left border of the description
-    // not sure about the 30
-    $(this).css('width', ($(this).width()+($('.descrow').offset().left-$(this).outerWidth(true)-$(this).offset().left)-30)+'px');
-    // and do a relayout
-    $container.isotope('layout');
-  });
-  */
-  };
+    // create modal permalink
+    $(".modalURL").click(function() {
+    history.pushState({}, '', $(this).attr("data-target"));
+    });
 
-  moveCloserToDesc();
+    //when modal is closed, remove hash by setting location to origin
+    // $origin = window.location.pathname;
+    // $(".closer").click(function() {
+    //  history.pushState({}, '', $origin);
+    // });
 
+    // modal permalink
+    $(".modal.permalink").each(function(){
+      if(window.location.hash.indexOf($(this).attr("id")) != -1){
+        
+        $id = $(this).attr("id");
+        $hash = window.location.hash.substr(1);
 
-  var timeout;
-  // undo the hack on resize and recalculate afterwards
-  $(window).on('resize', function() {
-  clearTimeout(timeout);
-
-  timeout = setTimeout(function() {
-    $('.dist').each(function() {
-      if ($(this).attr('data-saved-max-width')) {
-        $(this).css('max-width', $(this).attr('data-saved-max-width'));
-        $(this).attr('data-saved-max-width', '');
-        $(this).css('width', '');
+        if ($id == $hash){
+          $(this).modal('show');
+        };
       }
     });
 
-    moveCloserToDesc();
-  }, 100);
-  });
+    $metaheight = $( ".meta.col-md-6" ).height();
 
-
-  // pause video when modal is closed
-  $('.modal').on('hidden.bs.modal', function () {
-    $('video').trigger('pause');
-    history.pushState({}, '', window.location.pathname);
-  });
-
-  // create modal permalink
-  $(".modalURL").click(function() {
-  history.pushState({}, '', $(this).attr("data-target"));
-  });
-
-  //when modal is closed, remove hash by setting location to origin
-  // $origin = window.location.pathname;
-  // $(".closer").click(function() {
-  //  history.pushState({}, '', $origin);
-  // });
-
-  // modal permalink
-  $(".modal.permalink").each(function(){
-    if(window.location.hash.indexOf($(this).attr("id")) != -1){
-      
-      $id = $(this).attr("id");
-      $hash = window.location.hash.substr(1);
-
-      if ($id == $hash){
-        $(this).modal('show');
-      };
+    var prim = $('.rep-primary').parent().detach();
+    if (prim) {
+      $(prim).insertAfter('#metadata');
     }
-  });
-
-
-
-
-
-  $metaheight = $( ".meta.col-md-6" ).height();
-
-  //show media filter after passing description
-  // $(window).scroll(function() {
-  //     if ($(window).scrollTop() >  $metaheight) {
-  //         $(".viewmenu").fadeIn("slow");
-  //     }
-  //     else if ($(window).scrollTop() < $metaheight ){
-  //         $(".viewmenu").fadeOut("slow");
-  //     }
-  // });
-
-
-
-  var prim = $('.rep-primary').parent().detach();
-  if (prim) {
-    $(prim).insertAfter('#metadata');
-  }
 
   });
 

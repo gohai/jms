@@ -6,6 +6,15 @@ function content_dir() {
 	return rtrim(config('content_dir', 'JODI'), '/');
 }
 
+function filext($fn) {
+	$pos = strrpos($fn, '.');
+	if ($pos !== false) {
+		return substr($fn, $pos+1);
+	} else {
+		return '';
+	}
+}
+
 function format_class($s) {
 	$s = strtolower($s);
 	$s = str_replace(' ', '-', $s);

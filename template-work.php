@@ -144,9 +144,35 @@ endif;
       </div>
     </div>
     <div id="tilecontainer" style="clear: left; padding-top: 20px;">
-      <a data-toggle="modal" class="modalURL" data-target="#media-476">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
-      <div style="padding-top: 133.333333333%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/43766_ca_object_representations_media_476_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 525px;"></div></a> <!-- modal for representation -->
+<?php
+
+// previews
+foreach ($data['media'] as $category) {
+
+  foreach ($category['media'] as $media) {
+
+    // skip everything besides audio, image, video
+    if (!in_array(explode('/', $media['mime'])[0], array('audio', 'image', 'video'))) {
+      continue;
+    }
+
+?>
+      <a data-toggle="modal" class="modalURL" data-target="#media-476"><div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
+        <div style="padding-top: 133.333333333%;"></div>
+        <img data-src="<?php echo $media['url']; ?>" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 525px;" src="">
+      </div></a>
+<?php
+
+  }
+
+}
+
+// modals
+foreach ($data['media'] as $category) {
+
+  foreach ($category['media'] as $media) {
+
+?>
       <div class="modal permalink modal-type-exhibition" id="media-476" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
           <div class="modal-content">
@@ -155,250 +181,18 @@ endif;
             </div>
             <div class="modal-body">
               <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/54733_ca_object_representations_media_476_original.jpg" alt="[BLANK]"></div></a>
+              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="<?php echo $media['url']; ?>" alt="<?php echo $media['description']; ?>" src=""></div></a>
             </div>
           </div>
         </div>
       </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-490">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
-      <div style="padding-top: 104.633781764%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/11033_ca_object_representations_media_490_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 669px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-490" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/77973_ca_object_representations_media_490_original.jpg" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-274">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 487px; display:none;">
-      <div style="padding-top: 69.5714285714%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/2/68459_ca_object_representations_media_274_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-274" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/2/89279_ca_object_representations_media_274_original.png" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-276">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition rep-primary" style="max-height: 459px;">
-      <div style="padding-top: 65.5714285714%;"></div><img src="http://jodi.academy/media/collectiveaccess/images/2/77024_ca_object_representations_media_276_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-276" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/2/45484_ca_object_representations_media_276_original.png" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-471">
-      <div class="artworkIMG dist packitem rep-image rep-type-artwork" style="max-height: 477px; display:none;">
-      <div style="padding-top: 68.1428571429%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/70141_ca_object_representations_media_471_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-artwork" id="media-471" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/13538_ca_object_representations_media_471_original.png" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-472">
-      <div class="artworkIMG dist packitem rep-image rep-type-artwork" style="max-height: 525px; display:none;">
-      <div style="padding-top: 75%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/11187_ca_object_representations_media_472_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-artwork" id="media-472" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/36572_ca_object_representations_media_472_original.jpg" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-473">
-      <div class="artworkIMG dist packitem rep-image rep-type-artwork" style="max-height: 438px; display:none;">
-      <div style="padding-top: 62.5714285714%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/41845_ca_object_representations_media_473_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-artwork" id="media-473" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/11987_ca_object_representations_media_473_original.png" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-474">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 525px; display:none;">
-      <div style="padding-top: 75%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/10966_ca_object_representations_media_474_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-474" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/72524_ca_object_representations_media_474_original.jpg" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-477">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 525px; display:none;">
-      <div style="padding-top: 75%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/53178_ca_object_representations_media_477_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-477" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/75224_ca_object_representations_media_477_original.jpg" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-480">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 465px; display:none;">
-      <div style="padding-top: 66.4285714286%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/83594_ca_object_representations_media_480_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-480" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/56909_ca_object_representations_media_480_original.jpg" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-481">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 700px; display:none;">
-      <div style="padding-top: 133.333333333%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/53668_ca_object_representations_media_481_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 525px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-481" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/17484_ca_object_representations_media_481_original.png" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-482">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 525px; display:none;">
-      <div style="padding-top: 75%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/90740_ca_object_representations_media_482_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-482" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/74334_ca_object_representations_media_482_original.jpg" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-483">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 512px; display:none;">
-      <div style="padding-top: 73.1428571429%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/63078_ca_object_representations_media_483_medium.png" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-483" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/16747_ca_object_representations_media_483_original.tiff" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-488">
-      <div class="artworkIMG dist packitem rep-image rep-type-exhibition" style="max-height: 467px; display:none;">
-      <div style="padding-top: 66.7142857143%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/66940_ca_object_representations_media_488_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-exhibition" id="media-488" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/90028_ca_object_representations_media_488_original.jpg" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-491"></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-ephemera" id="media-491" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <object data="http://jodi.academy/media/collectiveaccess/images/4/35526_ca_object_representations_media_491_original.pdf" type="application/pdf" width="780" height="585">
-                <p><a href="http://jodi.academy/media/collectiveaccess/images/4/35526_ca_object_representations_media_491_original.pdf">Download</a></p>
-              </object>
-            </div>
-          </div>
-        </div>
-      </div>
-       <a data-toggle="modal" class="modalURL" data-target="#media-492">
-      <div class="artworkIMG dist packitem rep-image rep-type-ephemera" style="max-height: 466px; display:none;">
-      <div style="padding-top: 66.5714285714%;"></div><img data-src="http://jodi.academy/media/collectiveaccess/images/4/17506_ca_object_representations_media_492_medium.jpg" alt="" style="position: absolute; top: 0; bottom: 0; left: 0; right: 0; width: 100%; max-width: 700px;"></div></a> <!-- modal for representation -->
-      <div class="modal permalink modal-type-ephemera" id="media-492" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true"><a class="closer" data-dismiss="modal">&times;</a></span><span class="sr-only">Close</span></button>
-            </div>
-            <div class="modal-body">
-              <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="http://jodi.academy/media/collectiveaccess/images/4/8297_ca_object_representations_media_492_original.jpg" alt="[BLANK]"></div></a>
-            </div>
-          </div>
-        </div>
-      </div>
+<?php
+
+  }
+
+}
+
+?>
     </div>
   </div>
 

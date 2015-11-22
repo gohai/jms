@@ -92,6 +92,17 @@ By default (without using a list file), media files are ordered alphabetically a
 description.
 
 
+## Adding primary representation
+
+Each work can also contain one image or video file, which is being used as its primary
+visual representation. Place this file directly in the work directory, along with the
+meta.txt and description.html files. It can have any filename, but there can only be a
+single one.
+
+It is suggested to copy a file from one of the media subdirectories to be used as the
+primary one, and to keep the original file (and description) in place.
+
+
 # Third-party software used
 
 Bootstrap 3.3.5, downloaded from http://getbootstrap.com/getting-started/

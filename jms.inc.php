@@ -307,6 +307,29 @@ function load_work($name, $resolve_references = true) {
 		$work['media'] = array();
 	}
 
+	// XXX: as above
+	$work['primary_representation'] = null;
+	$fns = @scandir(content_dir() . '/' . $name);
+	foreach ($fns as $fn) {
+		if (in_array($fn, array('.', '..', 'description.html', 'meta.txt'))) {
+			continue;
+		}
+		if (substr($fn, 0, 1) === '_') {
+			continue;
+		}
+		if (!@is_file(content_dir() . '/' . $name . '/' . $fn)) {
+			// not a file
+			continue;
+		}
+		// check mime type
+		$mime = get_mime(content_dir() . '/' . $name . '/' . $fn);
+		if (!in_array(explode('/', $mime)[0], array('image', 'video'))) {
+			// only accept images and videos
+			continue;
+		}
+		$work['primary_representation'] = array('url' => $name . '/' . $fn, 'description' => '', $fn => $fn, 'mime' => $mime);
+	}
+
 	return $work;
 }
 

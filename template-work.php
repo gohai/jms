@@ -276,9 +276,14 @@ foreach ($data['media'] as $category) {
 
   });
 
-  // dynamically load the "large" version of images when opening a modal
   $('.modal').on('shown.bs.modal', function(e) {
     $(this).find('img').each(function() {
+      // load the large version of the image when we open the modal
+      if ( $(this).attr('data-src') ) {
+        $(this).attr('src', $(this).attr('data-src'));
+        $(this).removeAttr('data-src');
+      }
+
       // constrain the image also on its height to prevent scrollbars
       $(this).css('max-height', 'calc('+$(window).height()+'px - 70px)');
     });
@@ -308,12 +313,12 @@ foreach ($data['media'] as $category) {
       $('.work-preview').filter('.work-category-' + targetCategory).show();
     }
 
-    // load images for selected category (preview and modal)
+    // load the preview version of the image when we select the category
     var toLoad;
     if (targetCategory == 'all') {
-      toLoad = $('.work-preview, .work-modal');
+      toLoad = $('.work-preview');
     } else {
-      toLoad = $('.work-category-' + targetCategory);
+      toLoad = $('.work-preview').filter('.work-category-' + targetCategory);
     }
     $(toLoad).each(function() {
       // find any child img that has a data-src attribute

@@ -193,7 +193,7 @@ foreach ($data['media'] as $category) {
             </div>
             <div class="modal-body">
               <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-large-src="<?php echo $media['url']; ?>" alt="<?php echo $media['description']; ?>" src=""></div></a>
+              <div class="modalIMGs"><img class="modalIMG img-responsive" data-src="<?php echo $media['url']; ?>" alt="<?php echo $media['description']; ?>" src=""></div></a>
             </div>
           </div>
         </div>
@@ -246,8 +246,6 @@ foreach ($data['media'] as $category) {
       }
     });
 
-    $metaheight = $( ".meta.col-md-6" ).height();
-
     var prim = $('.rep-primary').parent().detach();
     if (prim) {
       $(prim).insertAfter('#metadata');
@@ -257,14 +255,6 @@ foreach ($data['media'] as $category) {
 
   // dynamically load the "large" version of images when opening a modal
   $('.modal').on('shown.bs.modal', function(e) {
-    $(this).find('img').each(function() {
-      var highres_url = $(this).attr('data-large-src');
-      if (highres_url) {
-        $(this).attr('src', highres_url);
-        $(this).removeAttr('data-large-src');
-        //$(this).parent().append('<div style="position: absolute; left: 0px; top: 0px; width: 100%; height: 100%; background-image: url('+highres_url+'); background-size: contain; background-repeat: no-repeat;">');
-        //$(this).attr('data-highres', null);
-      }
       // constrain the image also on its height to prevent scrollbars
       $(this).css('max-height', 'calc('+$(window).height()+'px - 70px)');
     });

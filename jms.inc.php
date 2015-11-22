@@ -19,6 +19,7 @@ function format_class($s) {
 	$s = strtolower($s);
 	$s = str_replace(' ', '-', $s);
 	$s = str_replace('&', '', $s);
+	$s = str_replace('/', '-', $s);
 	return $s;
 }
 

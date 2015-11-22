@@ -95,8 +95,31 @@ if (!empty($data['materials'])) :
 
 endif;
 
+// add all media everything besides audio, image, video
+foreach ($data['media'] as $category) {
+  $found = false;
+
+  foreach ($category['media'] as $media) {
+    if (in_array(explode('/', $media['mime'])[0], array('audio', 'image', 'video'))) {
+      continue;
+    }
+
+    if (!$found) {
+      echo '  ' . $category['name'] . ': [';
+      $found = true;
+    } else {
+      echo ', ';
+    }
+
+    echo '<a data-toggle="modal" class="modalURL media-type-' . format_class(explode('/', $media['mime'])[0]) . ' media-type-' .  format_class($media['mime']) . ' media-category-' . format_class($category['name']) . '" data-target="#media-491">' . $media['fn'] . '</a>';
+  }
+
+  if ($found) {
+    echo '],' . "\n";
+  }
+}
+
 ?>
-  ephemera: [<a data-toggle="modal" class="modalURL" data-target="#media-491" style="color: rgb(249, 39, 114);">AudioSwap - YouTube.pdf</a>],
   ...
 });
 </pre>

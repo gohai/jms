@@ -1,0 +1,2 @@
+cat2.jpg: A photo of a cat (will come first)
+cat1.jpg: Another photo of a cat

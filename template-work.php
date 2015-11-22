@@ -255,6 +255,7 @@ foreach ($data['media'] as $category) {
 
   // dynamically load the "large" version of images when opening a modal
   $('.modal').on('shown.bs.modal', function(e) {
+    $(this).find('img').each(function() {
       // constrain the image also on its height to prevent scrollbars
       $(this).css('max-height', 'calc('+$(window).height()+'px - 70px)');
     });

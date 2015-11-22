@@ -15,6 +15,12 @@ error_reporting(E_ALL);
 
 // path to store content
 $config['content_dir'] = 'JODI';
+// desired sort order and descriptions for media categories (work subfolders)
+$config['media_categories'] = array(
+	'artwork' => 'Artwork',
+	'exhibitionview' => 'Exhibition view',
+	'ephemera' => 'Ephemera'
+);
 // show intro page
 $config['show_intro'] = true;
 

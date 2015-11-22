@@ -58,6 +58,24 @@ To add a description to a work, place HTML in a file called *description.html*. 
 not exist for the work to show up.
 
 
+## Adding media
+
+Add media files in the respective directory in each work's directory. For example: exhibition
+view shots for zyx would be placed in a directory "exibitionview" in the "zyx" directory.
+
+Directories and files that start with an underscore are hidden.
+
+The order in which the different categories show up is determined by the media_categories
+variable in config.inc.php. To show the category "Exhibition view" before "Ephemera", move the
+entry for the former ahead of the latter. If no ordering is defined, categories will simply be
+ordered alphabetically.
+
+With the media_categories variable in config.inc.php it is also possible to define a text (title)
+for display (e.g. on the dropdown), that differs from the directory name, which is used by default.
+With this, the directory could e.g. be called "exhibitionview", while the entry is displayed as
+"Exhibition view".
+
+
 # Third-party software used
 
 Bootstrap 3.3.5, downloaded from http://getbootstrap.com/getting-started/

@@ -86,6 +86,80 @@ function list_works() {
 	return $fns;
 }
 
+function load_media($name) {
+	$fns = @scandir(content_dir() . '/' . $name);
+	if ($fns === false) {
+		return false;
+	}
+
+	$media = array();
+	foreach ($fns as $fn) {
+		if (in_array($fn, array('.', '..'))) {
+			continue;
+		}
+		if (substr($fn, 0, 1) == '_') {
+			continue;
+		}
+
+		$category = load_media_category($name, $fn);
+		if ($category !== false) {
+			// ignore errors
+			$media[] = $category;
+		}
+	}
+
+	// sort categories
+	$defined_categories = config('media_categories', array());
+	$needles = array_keys($defined_categories);
+	for ($i=count($needles)-1; 0 <= $i; $i--) {
+		// loop through all defined categories in reverse
+		for ($j=1; $j < count($media); $j++) {
+			if ($media[$j]['name'] === $needles[$i]) {
+				// if we find the category, push it to the top
+				$tmp = array_splice($media, $j, 1)[0];
+				array_unshift($media, $tmp);
+				break;
+			}
+		}
+	}
+
+	return $media;
+}
+
+function load_media_category($work_name, $category_name) {
+	$fns = @scandir(content_dir() . '/' . $work_name . '/' . $category_name);
+	if ($fns === false) {
+		return false;
+	}
+
+	$category = array();
+	$category['name'] = $category_name;
+
+	// check if we have a pretty name for the category
+	$defined_categories = config('media_categories', array());
+	if (isset($defined_categories[$category_name])) {
+		$category['title'] = $defined_categories[$category_name];
+	} else {
+		$category['title'] = $category_name;
+	}
+
+	$category['media'] = array();
+	foreach ($fns as $fn) {
+		if (in_array($fn, array('.', '..'))) {
+			continue;
+		}
+		if (substr($fn, 0, 1) == '_') {
+			continue;
+		}
+		if (!@is_file(content_dir() . '/' . $work_name . '/' . $category_name . '/' . $fn)) {
+			continue;
+		}
+		$category['media'][] = array('url' => $work_name . '/' . $category_name . '/' . $fn);
+	}
+
+	return $category;
+}
+
 function load_work($name, $resolve_references = true) {
 	$s = @file_get_contents(content_dir() . '/' . $name . '/meta.txt');
 	if ($s === false) {
@@ -119,6 +193,14 @@ function load_work($name, $resolve_references = true) {
 
 	/* normalize all other fields */
 	$work = normalize_work($work, $resolve_references);
+
+	// XXX: not necessary for !resolve_references
+	$media = load_media($name);
+	if ($media !== false) {
+		$work['media'] = $media;
+	} else {
+		$work['media'] = array();
+	}
 
 	return $work;
 }

@@ -17,18 +17,19 @@
       <div class="dropdown viewmenu">
         <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-expanded="true">View <span class="glyphicon dropchev glyphicon-chevron-down" aria-hidden="true"></span></button>
         <ul class="dropdown-menu" aria-labelledby="dropdownMenu1" role="menu">
+<?php
+
+foreach ($data['media'] as $category):
+
+?>
           <li role="presentation">
-            <a role="menuitem" class="nav-all"></a>
+            <a role="menuitem" class="nav-<?php echo format_class($category['name']); ?>"><?php echo $category['title']; ?></a>
           </li>
-          <li role="presentation">
-            <a role="menuitem" class="nav-artwork">Artwork</a>
-          </li>
-          <li role="presentation">
-            <a role="menuitem" class="nav-exhibition">Exhibition view</a>
-          </li>
-          <li role="presentation">
-            <a role="menuitem" class="nav-ephemera">Ephemera</a>
-          </li>
+<?php
+
+endforeach;
+
+?>
           <li>
             <a class="nav-all">All</a>
           </li>

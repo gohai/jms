@@ -193,7 +193,30 @@ foreach ($data['media'] as $category) {
             </div>
             <div class="modal-body">
               <a data-dismiss="modal">
-              <div class="modalIMGs"><img class="modalIMG img-responsive" data-src="<?php echo $media['url']; ?>" alt="<?php echo $media['description']; ?>" src=""></div></a>
+<?php
+
+    if ($media['mime'] == 'application/pdf') { 
+
+      echo '<object data="' . $media['url'] . '" type="application/pdf" width="780" height="585">';
+      echo '<p><a href="' . $media['url'] . '">Download</a></p>';
+      echo '</object>';
+
+    } else if (substr($media['mime'], 0, 6) == 'image/') {
+
+      echo '<div class="modalIMGs"><img class="modalIMG img-responsive" data-src="' . $media['url'] . '" alt="' . $media['description'] . '" src=""></div></a>';
+
+    } else if ($media['mime'] == 'text/plain') {
+
+      echo '<pre class="textcontainer">';
+      $s = @file_get_contents($media['url']);
+      if ($s !== false) {
+        echo htmlentities($s, ENT_COMPAT|ENT_IGNORE);
+      }
+      echo '</pre>';
+
+    }
+
+?>              
             </div>
           </div>
         </div>

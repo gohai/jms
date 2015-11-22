@@ -260,7 +260,8 @@ foreach ($data['media'] as $category) {
     // pause video when modal is closed
     $('.modal').on('hidden.bs.modal', function () {
       $('video').trigger('pause');
-      history.pushState({}, '', window.location.pathname);
+      //history.pushState({}, '', window.location.pathname);
+      window.location.hash = '';
     });
 
     // create modal permalink

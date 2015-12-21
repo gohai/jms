@@ -1,6 +1,12 @@
 # How to use?
 
 
+## Initial setup
+
+The JODI folder needs to be writable for the webserver process. This can be done by
+executing `chmod a+rwx JODI` in the terminal.
+
+
 ## Adding works
 
 Create a subdirectory inside the JODI folder. The name of the subdirectory is also the

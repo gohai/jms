@@ -13,6 +13,8 @@ $config = array();
 // show errors (might be good to disable for release)
 error_reporting(E_ALL);
 
+// how often cached pages are regenerated, in seconds
+$config['cache_time'] = 3600;
 // path to store content
 $config['content_dir'] = 'JODI';
 // desired sort order and descriptions for media categories (work subfolders)

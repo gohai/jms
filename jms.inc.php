@@ -6,6 +6,11 @@ function content_dir() {
 	return rtrim(config('content_dir', 'JODI'), '/');
 }
 
+function cache_needs_update($name, $max_age = 3600) {
+	$modified = @filemtime(content_dir() . '/_cache/' . $name . '.html');
+	return ($modified === false || $max_age < time()-$modified);
+}
+
 function filext($fn) {
 	$pos = strrpos($fn, '.');
 	if ($pos !== false) {
@@ -24,15 +29,32 @@ function format_class($s) {
 }
 
 function generate_browse() {
-	$data = array();
-	foreach (list_works() as $name) {
-		$work = load_work($name);
-		if ($work === false) {
-			continue;
-		}
-		$data[] = $work;
+	// check if there is anything cached
+	$cached = load_cached('browse');
+	if ($cached !== false) {
+		// yes, output
+		echo $cached;
+		flush();
 	}
-	return run_template('template-browse.php', $data);
+
+	// check if we still want/need to generate the page
+	if (cache_needs_update('browse', config('cache_time'))) {
+		$data = array();
+		foreach (list_works() as $name) {
+			$work = load_work($name);
+			if ($work === false) {
+				continue;
+			}
+			$data[] = $work;
+		}
+		$generated = run_template('template-browse.php', $data);
+		// save the generated page
+		save_cached('browse', $generated);
+		// output if we haven't already above
+		if ($cached === false) {
+			echo $generated;
+		}
+	}
 }
 
 function generate_work($name) {
@@ -178,6 +200,13 @@ function list_works() {
 		}
 	}
 	return $fns;
+}
+
+function load_cached($name) {
+	if (strpos($name, '../') !== false) {
+		return false;
+	}
+	return @file_get_contents(content_dir() . '/_cache/' . $name . '.html');
 }
 
 function load_media($name) {
@@ -436,6 +465,17 @@ function run_template($fn, $data = array()) {
 	@include($fn);
 	$ret = @ob_get_contents();
 	@ob_end_clean();
+	return $ret;
+}
+
+function save_cached($name, $data) {
+	if (strpos($name, '../') !== false) {
+		return false;
+	}
+	$old_umask = @umask(0000);
+	@mkdir(content_dir() . '/_cache/');
+	$ret = @file_put_contents(content_dir() . '/_cache/' . $name . '.html', $data);
+	@umask($old_umask);
 	return $ret;
 }
 
